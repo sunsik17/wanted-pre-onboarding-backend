@@ -1,4 +1,4 @@
-package com.internship.wanted.wantedpreonboardingbackend.web.recruitment;
+package com.internship.wanted.wantedpreonboardingbackend.application.controller.recruitment;
 
 import com.internship.wanted.wantedpreonboardingbackend.domain.recruitment.dto.RecruitmentForm;
 import com.internship.wanted.wantedpreonboardingbackend.domain.recruitment.service.RecruitmentWriteService;
@@ -18,7 +18,6 @@ public class RecruitmentController {
 
 	@PostMapping("/registration")
 	public ResponseEntity<?> registration(@RequestBody RecruitmentForm.Request request) {
-
 		return ResponseEntity.ok().body(recruitmentWriteService.registration(request));
 	}
 }

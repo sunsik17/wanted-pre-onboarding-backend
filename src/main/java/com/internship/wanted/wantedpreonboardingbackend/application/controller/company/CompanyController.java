@@ -1,4 +1,4 @@
-package com.internship.wanted.wantedpreonboardingbackend.web.company;
+package com.internship.wanted.wantedpreonboardingbackend.application.controller.company;
 
 import com.internship.wanted.wantedpreonboardingbackend.domain.company.service.CompanyWriteService;
 import lombok.RequiredArgsConstructor;
