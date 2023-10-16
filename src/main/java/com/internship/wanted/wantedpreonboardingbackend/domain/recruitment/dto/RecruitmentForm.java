@@ -40,6 +40,7 @@ public class RecruitmentForm {
 		public static Response fromEntity(Recruitment entity) {
 			return Response.builder()
 				.title(entity.getTitle())
+				.companyName(entity.getCompanyName())
 				.compensation(entity.getCompensation())
 				.region(entity.getRegion())
 				.country(entity.getCountry())
