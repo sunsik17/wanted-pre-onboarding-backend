@@ -15,6 +15,8 @@ public class RecruitmentForm {
 		private Long companyId;
 		private String title; // 제목
 		private String position; // 포지션
+		private String region; // 지역
+		private String country; // 국가
 		private Long compensation; // 채용보상금
 		private String contents; // 내용
 		private String skill; // 기술
@@ -25,9 +27,10 @@ public class RecruitmentForm {
 	@AllArgsConstructor
 	@Builder
 	public static class Response {
-		private Long companyId;
 		private String title;
 		private String companyName;
+		private String region;
+		private String country;
 		private String position;
 		private Long compensation;
 		private String contents;
@@ -36,12 +39,15 @@ public class RecruitmentForm {
 
 		public static Response fromEntity(Recruitment entity) {
 			return Response.builder()
-				.companyId(entity.getCompanyId())
+				.title(entity.getTitle())
 				.compensation(entity.getCompensation())
+				.region(entity.getRegion())
+				.country(entity.getCountry())
 				.companyName(entity.getCompanyName())
 				.position(entity.getPosition())
 				.contents(entity.getContents())
 				.skill(entity.getSkill())
+				.deadline(entity.getDeadline())
 				.build();
 		}
 	}

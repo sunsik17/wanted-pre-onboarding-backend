@@ -29,7 +29,9 @@ public class RecruitmentWriteService {
 		Recruitment recruitment = recruitmentRepository.save(
 			Recruitment.builder()
 				.companyName(company.getCompanyName())
-				.companyId(company.getId())
+				.company(company)
+				.region(request.getRegion())
+				.country(request.getCountry())
 				.compensation(request.getCompensation())
 				.contents(request.getContents())
 				.title(request.getTitle())
