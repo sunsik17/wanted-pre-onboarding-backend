@@ -43,6 +43,21 @@ public class RecruitmentWriteService {
 		return RecruitmentForm.Response.fromEntity(recruitment);
 	}
 
+	public RecruitmentForm.Response updateRecruitmentDetail(
+		Long recruitmentId,
+		RecruitmentForm.Request request) {
+
+		Recruitment recruitment = recruitmentRepository.findById(recruitmentId)
+			.orElseThrow(() -> new RuntimeException("채용공고를 찾을 수 없습니다."));
+
+		validateDeadline(request.getDeadline());
+
+		recruitment.updateRecruitmentEntity(request);
+
+		return RecruitmentForm.Response
+			.fromEntity(recruitmentRepository.save(recruitment));
+	}
+
 	private void validateDeadline(LocalDate deadline) {
 		if (!deadline.isAfter(LocalDate.now())) {
 			throw new RuntimeException("마감기한은 현재보다 이전일 수 없습니다.");
