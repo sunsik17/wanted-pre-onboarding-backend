@@ -29,6 +29,6 @@ public class Company extends BaseEntity {
 	@Column(unique = true)
 	private String companyName;
 
-	@OneToMany(mappedBy = "recruitment", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "company", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Recruitment> recruitment;
 }
