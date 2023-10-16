@@ -30,6 +30,9 @@ dependencies {
     // swagger
     implementation 'org.springdoc:springdoc-openapi-ui:1.6.8'
 
+    // jsoup
+    implementation group: 'org.jsoup', name: 'jsoup', version: '1.16.1'
+
     // test
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
