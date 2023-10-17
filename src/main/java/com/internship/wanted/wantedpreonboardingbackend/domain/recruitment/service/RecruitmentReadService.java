@@ -1,6 +1,7 @@
 package com.internship.wanted.wantedpreonboardingbackend.domain.recruitment.service;
 
 import com.internship.wanted.wantedpreonboardingbackend.domain.recruitment.dto.RecruitmentDetail;
+import com.internship.wanted.wantedpreonboardingbackend.domain.recruitment.dto.RecruitmentDto;
 import com.internship.wanted.wantedpreonboardingbackend.domain.recruitment.entity.Recruitment;
 import com.internship.wanted.wantedpreonboardingbackend.domain.recruitment.repositoty.RecruitmentRepository;
 import java.util.stream.Collectors;
@@ -27,6 +28,11 @@ public class RecruitmentReadService {
 		);
 
 		return recruitmentDetail;
+	}
+
+	public RecruitmentDto getRecruitment(Long recruitmentId) {
+		return RecruitmentDto.fromEntity(recruitmentRepository.findById(recruitmentId)
+			.orElseThrow(() -> new RuntimeException("유저를 찾을 수 없습니다.")));
 	}
 
 }
