@@ -4,6 +4,7 @@ import com.internship.wanted.wantedpreonboardingbackend.application.usecase.Dele
 import com.internship.wanted.wantedpreonboardingbackend.domain.recruitment.dto.RecruitmentForm;
 import com.internship.wanted.wantedpreonboardingbackend.domain.recruitment.service.RecruitmentReadService;
 import com.internship.wanted.wantedpreonboardingbackend.domain.recruitment.service.RecruitmentWriteService;
+import javax.validation.constraints.Min;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -45,5 +47,10 @@ public class RecruitmentController {
 	public ResponseEntity<?> deleteRecruitment(@PathVariable Long recruitmentId) {
 		deleteRecruitmentUsecase.execute(recruitmentId);
 		return ResponseEntity.ok().body(true);
+	}
+
+	@GetMapping("/page=?")
+	public ResponseEntity<?> getRecruitments(@RequestParam @Min(1) Long num) {
+		return ResponseEntity.ok().body(recruitmentReadService.getRecruitments(num));
 	}
 }

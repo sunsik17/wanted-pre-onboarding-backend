@@ -33,7 +33,6 @@ public class RecruitmentForm {
 		private String country;
 		private String position;
 		private Long compensation;
-		private String contents;
 		private String skill;
 		private LocalDate deadline;
 
@@ -46,7 +45,6 @@ public class RecruitmentForm {
 				.country(entity.getCountry())
 				.companyName(entity.getCompanyName())
 				.position(entity.getPosition())
-				.contents(entity.getContents())
 				.skill(entity.getSkill())
 				.deadline(entity.getDeadline())
 				.build();

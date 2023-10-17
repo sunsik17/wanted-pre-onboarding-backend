@@ -2,10 +2,14 @@ package com.internship.wanted.wantedpreonboardingbackend.domain.recruitment.serv
 
 import com.internship.wanted.wantedpreonboardingbackend.domain.recruitment.dto.RecruitmentDetail;
 import com.internship.wanted.wantedpreonboardingbackend.domain.recruitment.dto.RecruitmentDto;
+import com.internship.wanted.wantedpreonboardingbackend.domain.recruitment.dto.RecruitmentForm;
 import com.internship.wanted.wantedpreonboardingbackend.domain.recruitment.entity.Recruitment;
 import com.internship.wanted.wantedpreonboardingbackend.domain.recruitment.repositoty.RecruitmentRepository;
+import java.util.List;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -28,6 +32,13 @@ public class RecruitmentReadService {
 		);
 
 		return recruitmentDetail;
+	}
+
+	public List<RecruitmentForm.Response> getRecruitments(Long num) {
+		int pageNum = num.intValue();
+		Pageable limit = PageRequest.of(pageNum, pageNum * 10);
+		return recruitmentRepository.findAll(limit)
+			.map(RecruitmentForm.Response::fromEntity).toList();
 	}
 
 	public RecruitmentDto getRecruitment(Long recruitmentId) {
