@@ -1,7 +1,7 @@
 package com.internship.wanted.wantedpreonboardingbackend.application.controller.applying;
 
 
-import com.internship.wanted.wantedpreonboardingbackend.application.usecase.ApplyingToRecruitmentUsercase;
+import com.internship.wanted.wantedpreonboardingbackend.application.usecase.ApplyingToRecruitmentUsecase;
 import com.internship.wanted.wantedpreonboardingbackend.application.usecase.GetApplyingUserUsecase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -16,14 +16,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/applying")
 public class ApplyingController {
 
-	private final ApplyingToRecruitmentUsercase applyingToRecruitmentUsercase;
+	private final ApplyingToRecruitmentUsecase applyingToRecruitmentUsecase;
 	private final GetApplyingUserUsecase getApplyingUserUsecase;
 
 	@PostMapping("/{toRecruitmentId}/{fromUserId}")
 	public ResponseEntity<?> applying(@PathVariable Long toRecruitmentId,
 		@PathVariable Long fromUserId) {
 		return ResponseEntity.ok()
-			.body(applyingToRecruitmentUsercase.execute(toRecruitmentId, fromUserId));
+			.body(applyingToRecruitmentUsecase.execute(toRecruitmentId, fromUserId));
 	}
 
 	@GetMapping("/users/{fromRecruitmentId}")
