@@ -14,6 +14,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class RecruitmentDto {
+
 	private Long recruitmentId;
 	private String companyName;
 	private LocalDate deadline;

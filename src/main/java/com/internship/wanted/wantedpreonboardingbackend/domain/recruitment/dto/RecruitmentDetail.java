@@ -24,6 +24,7 @@ import lombok.Setter;
 //	"채용내용": "원티드랩에서 백엔드 주니어 개발자를 채용합니다. 자격요건은..",
 //	"회사가올린다른채용공고":[채용공고_id, 채용공고_id, ..] # id List (선택사항 및 가산점요소).
 public class RecruitmentDetail {
+
 	private Long id;
 	private String companyName;
 	private String position;

@@ -15,7 +15,7 @@ public class CompanyController {
 	private final CompanyWriteService companyWriteService;
 
 	@PostMapping("/registration")
-	public ResponseEntity<?> registration (){
+	public ResponseEntity<?> registration() {
 		companyWriteService.save();
 		return ResponseEntity.ok().body("성공");
 	}

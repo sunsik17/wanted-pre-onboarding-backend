@@ -8,10 +8,12 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 public class RecruitmentForm {
+
 	@Getter
 	@NoArgsConstructor
 	@AllArgsConstructor
 	public static class Request {
+
 		private Long companyId;
 		private String title; // 제목
 		private String position; // 포지션
@@ -22,11 +24,13 @@ public class RecruitmentForm {
 		private String skill; // 기술
 		private LocalDate deadline; // 마감기한
 	}
+
 	@Getter
 	@NoArgsConstructor
 	@AllArgsConstructor
 	@Builder
 	public static class Response {
+
 		private String title;
 		private String companyName;
 		private String region;

@@ -40,7 +40,8 @@ public class RecruitmentController {
 	public ResponseEntity<?> updateRecruitment(
 		@PathVariable Long id,
 		@RequestBody RecruitmentForm.Request request) {
-		return ResponseEntity.ok().body(recruitmentWriteService.updateRecruitmentDetail(id, request));
+		return ResponseEntity.ok()
+			.body(recruitmentWriteService.updateRecruitmentDetail(id, request));
 	}
 
 	@DeleteMapping("/delete/{recruitmentId}")

@@ -28,9 +28,10 @@ public class CompanyWriteService {
 			Connection connection = Jsoup.connect(STATIC_SCRAP_URL);
 			Document document = connection.get();
 
-			Elements elements = Objects.requireNonNull(document.getElementById(PRODUCT_PREFIX)).children();
+			Elements elements = Objects.requireNonNull(document.getElementById(PRODUCT_PREFIX))
+				.children();
 
-			for(Element e : elements) {
+			for (Element e : elements) {
 				String[] companies = e.getElementsByClass(DIV_CORP_PREFIX).text().split(" ");
 				companiesRoofSave(companies);
 				companies = e.getElementsByClass(HREF_CLASS_PREFIX).text().split(" ");

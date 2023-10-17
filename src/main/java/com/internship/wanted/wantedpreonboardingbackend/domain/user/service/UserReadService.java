@@ -17,6 +17,7 @@ public class UserReadService {
 		return UserDto.fromEntity(userRepository.findById(userId)
 			.orElseThrow(() -> new RuntimeException("해당 유저가 없습니다.")));
 	}
+
 	public List<UserDto> getUsers(List<Long> userIds) {
 		return userRepository.findAllByIdIn(userIds)
 			.stream().map(UserDto::fromEntity).collect(Collectors.toList());

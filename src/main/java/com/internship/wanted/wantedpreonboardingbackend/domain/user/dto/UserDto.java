@@ -13,6 +13,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UserDto {
+
 	private Long userId;
 
 	public static UserDto fromEntity(User entity) {

@@ -13,6 +13,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Builder
 public class ApplyingDto {
+
 	private Long id;
 	private Long userId;
 	private Long recruitmentId;
