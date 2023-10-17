@@ -21,8 +21,8 @@ public class ApplyingWriteService {
 
 		return ApplyingDto.fromEntity(applyingRepository.save(
 			Applying.builder()
-				.toRecruitmentId(recruitmentId)
-				.fromUserId(userId)
+				.recruitmentId(recruitmentId)
+				.userId(userId)
 				.build()));
 	}
 	public void deleteApplying(Long recruitmentId) {

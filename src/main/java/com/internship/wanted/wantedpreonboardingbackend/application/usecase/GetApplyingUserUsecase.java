@@ -19,7 +19,7 @@ public class GetApplyingUserUsecase {
 	public List<UserDto> execute(Long recruitmentId) {
 		List<ApplyingDto> applyingUserList = applyingReadService.getApplyingUserList(recruitmentId);
 		List<Long> applyingUserIds =
-			applyingUserList.stream().map(ApplyingDto::getFromUserId).collect(Collectors.toList());
+			applyingUserList.stream().map(ApplyingDto::getUserId).collect(Collectors.toList());
 
 		return userReadService.getUsers(applyingUserIds);
 	}

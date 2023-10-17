@@ -21,6 +21,6 @@ public class Applying extends BaseEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	private Long fromUserId;
-	private Long toRecruitmentId;
+	private Long userId;
+	private Long recruitmentId;
 }

@@ -14,14 +14,14 @@ import lombok.Setter;
 @Builder
 public class ApplyingDto {
 	private Long id;
-	private Long fromUserId;
-	private Long toRecruitmentId;
+	private Long userId;
+	private Long recruitmentId;
 
 	public static ApplyingDto fromEntity(Applying applying) {
 		return ApplyingDto.builder()
 			.id(applying.getId())
-			.fromUserId(applying.getFromUserId())
-			.toRecruitmentId(applying.getToRecruitmentId())
+			.userId(applying.getUserId())
+			.recruitmentId(applying.getRecruitmentId())
 			.build();
 	}
 }
