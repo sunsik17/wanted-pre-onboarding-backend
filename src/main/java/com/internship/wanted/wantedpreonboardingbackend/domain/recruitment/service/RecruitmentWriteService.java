@@ -8,6 +8,7 @@ import com.internship.wanted.wantedpreonboardingbackend.domain.recruitment.repos
 import java.time.LocalDate;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
@@ -43,6 +44,7 @@ public class RecruitmentWriteService {
 		return RecruitmentForm.Response.fromEntity(recruitment);
 	}
 
+	@Transactional
 	public RecruitmentForm.Response updateRecruitmentDetail(
 		Long recruitmentId,
 		RecruitmentForm.Request request) {
@@ -58,6 +60,7 @@ public class RecruitmentWriteService {
 			.fromEntity(recruitmentRepository.save(recruitment));
 	}
 
+	@Transactional(readOnly = true)
 	public void deleteRecruitment(Long recruitmentId) {
 		Recruitment recruitment = recruitmentRepository.findById(recruitmentId)
 			.orElseThrow(() -> new RuntimeException("공고를 찾을 수 없습니다."));
