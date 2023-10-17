@@ -1,5 +1,6 @@
 package com.internship.wanted.wantedpreonboardingbackend.application.controller.recruitment;
 
+import com.internship.wanted.wantedpreonboardingbackend.application.usecase.DeleteRecruitmentUsecase;
 import com.internship.wanted.wantedpreonboardingbackend.domain.recruitment.dto.RecruitmentForm;
 import com.internship.wanted.wantedpreonboardingbackend.domain.recruitment.service.RecruitmentReadService;
 import com.internship.wanted.wantedpreonboardingbackend.domain.recruitment.service.RecruitmentWriteService;
@@ -21,6 +22,7 @@ public class RecruitmentController {
 
 	private final RecruitmentWriteService recruitmentWriteService;
 	private final RecruitmentReadService recruitmentReadService;
+	private final DeleteRecruitmentUsecase deleteRecruitmentUsecase;
 
 	@PostMapping("/registration")
 	public ResponseEntity<?> registration(@RequestBody RecruitmentForm.Request request) {
@@ -41,7 +43,7 @@ public class RecruitmentController {
 
 	@DeleteMapping("/delete/{recruitmentId}")
 	public ResponseEntity<?> deleteRecruitment(@PathVariable Long recruitmentId) {
-		recruitmentWriteService.deleteRecruitment(recruitmentId);
+		deleteRecruitmentUsecase.execute(recruitmentId);
 		return ResponseEntity.ok().body(true);
 	}
 }
