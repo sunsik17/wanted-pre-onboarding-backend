@@ -175,3 +175,6 @@ url path = /applying/{toRecruitmentId}/{fromUserId}
 
 - 회사 더미데이터를 어떻게 생성할까 고민했다. easyRandom 라이브러리를 사용해 mock data를 삽입할까 생각했지만,jsoup 라이브러리를 사용해 실제 jobkorea를 크롤링했고 It회사 data를 삽입했다.
 이 과정에서 혹시 다른 데이터가 필요할 시 어떻게 사용하면 될지까지 학습할 수 있었다.
+
+- 매번 api 테스트를 진행하긴 했지만, test code작성 맟 unit test를 진행하지 못했다.
+  - TDD 개발을 진행하기 위해 학습이 필요하다고 판단했고, 테스트 주도 개발을 진행해보도록 해야겠다.
