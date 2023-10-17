@@ -5,6 +5,7 @@ import com.internship.wanted.wantedpreonboardingbackend.domain.recruitment.servi
 import com.internship.wanted.wantedpreonboardingbackend.domain.recruitment.service.RecruitmentWriteService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -36,5 +37,11 @@ public class RecruitmentController {
 		@PathVariable Long id,
 		@RequestBody RecruitmentForm.Request request) {
 		return ResponseEntity.ok().body(recruitmentWriteService.updateRecruitmentDetail(id, request));
+	}
+
+	@DeleteMapping("/delete/{recruitmentId}")
+	public ResponseEntity<?> deleteRecruitment(@PathVariable Long recruitmentId) {
+		recruitmentWriteService.deleteRecruitment(recruitmentId);
+		return ResponseEntity.ok().body(true);
 	}
 }

@@ -58,6 +58,12 @@ public class RecruitmentWriteService {
 			.fromEntity(recruitmentRepository.save(recruitment));
 	}
 
+	public void deleteRecruitment(Long recruitmentId) {
+		Recruitment recruitment = recruitmentRepository.findById(recruitmentId)
+			.orElseThrow(() -> new RuntimeException("공고를 찾을 수 없습니다."));
+		recruitmentRepository.delete(recruitment);
+	}
+
 	private void validateDeadline(LocalDate deadline) {
 		if (!deadline.isAfter(LocalDate.now())) {
 			throw new RuntimeException("마감기한은 현재보다 이전일 수 없습니다.");
