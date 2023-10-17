@@ -12,8 +12,8 @@ public class DeleteRecruitmentUsecase {
 	private final RecruitmentWriteService recruitmentWriteService;
 	private final ApplyingWriteService applyingWriteService;
 
-	public void execute(Long toRecruitmentId) {
-		recruitmentWriteService.deleteRecruitment(toRecruitmentId);
-		applyingWriteService.deleteApplying(toRecruitmentId);
+	public void execute(Long recruitmentId) {
+		recruitmentWriteService.deleteRecruitment(recruitmentId);
+		applyingWriteService.deleteApplying(recruitmentId);
 	}
 }

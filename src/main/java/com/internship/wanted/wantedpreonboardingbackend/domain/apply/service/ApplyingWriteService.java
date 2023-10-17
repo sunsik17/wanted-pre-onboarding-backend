@@ -7,6 +7,7 @@ import com.internship.wanted.wantedpreonboardingbackend.domain.recruitment.dto.R
 import com.internship.wanted.wantedpreonboardingbackend.domain.user.dto.UserDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
@@ -25,9 +26,12 @@ public class ApplyingWriteService {
 				.userId(userId)
 				.build()));
 	}
+
+	@Transactional
 	public void deleteApplying(Long recruitmentId) {
 		applyingRepository.deleteAllByRecruitmentId(recruitmentId);
 	}
+
 	private void validApplying(Long recruitmentId, Long userId) {
 		if (applyingRepository.findByRecruitmentIdAndUserId(recruitmentId, userId).isPresent()) {
 			throw new RuntimeException("공고 하나에 한번만 지원할 수 있습니다.");

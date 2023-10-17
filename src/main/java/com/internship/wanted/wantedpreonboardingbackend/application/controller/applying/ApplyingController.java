@@ -19,17 +19,17 @@ public class ApplyingController {
 	private final ApplyingToRecruitmentUsecase applyingToRecruitmentUsecase;
 	private final GetApplyingUserUsecase getApplyingUserUsecase;
 
-	@PostMapping("/{toRecruitmentId}/{fromUserId}")
-	public ResponseEntity<?> applying(@PathVariable Long toRecruitmentId,
-		@PathVariable Long fromUserId) {
+	@PostMapping("/{recruitmentId}/{userId}")
+	public ResponseEntity<?> applying(@PathVariable Long recruitmentId,
+		@PathVariable Long userId) {
 		return ResponseEntity.ok()
-			.body(applyingToRecruitmentUsecase.execute(toRecruitmentId, fromUserId));
+			.body(applyingToRecruitmentUsecase.execute(recruitmentId, userId));
 	}
 
-	@GetMapping("/users/{fromRecruitmentId}")
-	public ResponseEntity<?> getApplyingUserList(@PathVariable Long fromRecruitmentId) {
+	@GetMapping("/users/{recruitmentId}")
+	public ResponseEntity<?> getApplyingUserList(@PathVariable Long recruitmentId) {
 		return ResponseEntity.ok()
-			.body(getApplyingUserUsecase.execute(fromRecruitmentId));
+			.body(getApplyingUserUsecase.execute(recruitmentId));
 	}
 
 }
