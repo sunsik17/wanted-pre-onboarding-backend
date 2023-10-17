@@ -25,7 +25,9 @@ public class ApplyingWriteService {
 				.fromUserId(userId)
 				.build()));
 	}
-
+	public void deleteApplying(Long recruitmentId) {
+		applyingRepository.deleteAllByToRecruitmentId(recruitmentId);
+	}
 	private void validApplying(Long recruitmentId, Long userId) {
 		if (applyingRepository.findByToRecruitmentIdAndFromUserId(recruitmentId, userId).isPresent()) {
 			throw new RuntimeException("공고 하나에 한번만 지원할 수 있습니다.");
