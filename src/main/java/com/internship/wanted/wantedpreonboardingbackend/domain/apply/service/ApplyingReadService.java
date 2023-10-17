@@ -15,7 +15,7 @@ public class ApplyingReadService {
 	private final ApplyingRepository applyingRepository;
 
 	public List<ApplyingDto> getApplyingUserList(Long toRecruitmentId) {
-		return applyingRepository.findAllByToRecruitmentId(toRecruitmentId)
+		return applyingRepository.findAllByRecruitmentId(toRecruitmentId)
 			.stream().map(ApplyingDto::fromEntity).collect(Collectors.toList());
 	}
 }

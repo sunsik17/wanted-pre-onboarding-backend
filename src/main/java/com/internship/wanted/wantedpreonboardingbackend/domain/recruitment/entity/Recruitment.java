@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -29,6 +30,7 @@ public class Recruitment extends BaseEntity {
 	private String country;
 	private String companyName;
 	private String position;
+	@Lob
 	private String contents;
 	private Long compensation;
 	private String skill;

@@ -17,10 +17,10 @@ public class ApplyingToRecruitmentUsecase {
 	private final RecruitmentReadService recruitmentReadService;
 	private final ApplyingWriteService applyingWriteService;
 
-	public ApplyingDto execute(Long toRecruitmentId, Long fromUserId) {
+	public ApplyingDto execute(Long recruitmentId, Long userId) {
 
-		RecruitmentDto toRecruitment = recruitmentReadService.getRecruitment(toRecruitmentId);
-		UserDto fromUser = userReadService.getUser(fromUserId);
+		RecruitmentDto toRecruitment = recruitmentReadService.getRecruitment(recruitmentId);
+		UserDto fromUser = userReadService.getUser(userId);
 
 		return applyingWriteService.applying(toRecruitment, fromUser);
 	}
