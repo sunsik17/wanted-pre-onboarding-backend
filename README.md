@@ -152,7 +152,7 @@ url path = /applying/{toRecruitmentId}/{fromUserId}
 ```
 ---
 
-## API 명세 (_Swagger_)
+## API 명세 (_OpenAPI 1.18.6_)
 
 ![img.png](img.png)
 
